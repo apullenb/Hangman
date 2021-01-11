@@ -10,13 +10,13 @@ import WrongLetters from './components/WrongLetters';
 import {showNotification as show} from './helpers/helpers'
 
 
-const words = ['application', 'programming', 'interface', 'wizard', 'computer', 'typescript', 'developer', 'javascript', 'redbull', 'node', 'software', 'design', 'technology'];
-
-let selectedWord = words[Math.floor(Math.random() * words.length)];
-
 
 function App() {
 
+  const words = ['application', 'programming', 'interface', 'wizard', 'computer', 'typescript', 'developer', 'javascript', 'redbull', 'node', 'software', 'design', 'technology'];
+
+  let selectedWord = words[Math.floor(Math.random() * words.length)];
+  
 const [playable, setPlayable] = useState(true)
 const [correctLetters, setCorrectLetters] = useState([])
 const [wrongLetters, setWrongLetters] = useState([])
