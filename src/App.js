@@ -10,14 +10,9 @@ import WrongLetters from './components/WrongLetters';
 import {showNotification as show} from './helpers/helpers'
 
 
-const words = ['application', 'programming', 'interface', 'wizard'];
+const words = ['application', 'programming', 'interface', 'wizard', 'computer', 'typescript', 'developer', 'javascript', 'redbull', 'node', 'software', 'design', 'technology'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
-
-let playable = true;
-
-const correctLetters = [];
-const wrongLetters = [];
 
 
 function App() {
@@ -58,6 +53,13 @@ useEffect(() => {
   }
 }, [correctLetters, wrongLetters, playable])
 
+function playAgain(){
+  setPlayable(true)
+setCorrectLetters([])
+setWrongLetters([])
+const random = Math.floor(Math.random() * words.length)
+selectedWord = words[random]
+}
   return (
     <>
      <Header />
@@ -65,9 +67,8 @@ useEffect(() => {
     <Figure  wrongLetters = {wrongLetters}/>
     <WrongLetters wrongLetters = {wrongLetters} />
     <Word selectedWord= {selectedWord} correctLetters = {correctLetters}/>
-   
      </div>
-     <Popup selectedWord= {selectedWord} correctLetters = {correctLetters}/>
+     <Popup selectedWord= {selectedWord} correctLetters = {correctLetters} wrongLetters = {wrongLetters} setPlayable={setPlayable} playAgain ={playAgain}/>
     <Notification showNotification ={showNotification} />
     </>
   );
